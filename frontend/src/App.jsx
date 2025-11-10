@@ -1,8 +1,10 @@
 import { useTelegram } from './hooks/useTelegram';
 import { Route, Routes } from 'react-router-dom';
-
 import { useAuth } from './hooks/useAuth';
 import { useEffect } from 'react';
+
+import ProductList from './components/product-list';
+import Form from './components/form';
 
 import './App.css';
 

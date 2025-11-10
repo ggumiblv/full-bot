@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useTelegram } from '../../assets/hooks/useTelegram';
+import { useTelegram } from '../../hooks/useTelegram';
 
 import './index.css';
 

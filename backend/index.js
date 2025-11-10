@@ -10,14 +10,15 @@ const webAppURL = process.env.WEB_APP_URL;
 const PORT = process.env.PORT || 8000;
 const SERVER_URL = process.env.SERVER_URL;
 
+//const bot = new TelegramBot(token, { polling: true });
 const bot = new TelegramBot(token);
-
-bot.setWebHook(`${SERVER_URL}/bot${token}`);
 
 const app = express();
 
 app.use(express.json());
 app.use(cors());
+
+bot.setWebHook(`${SERVER_URL}/bot${token}`);
 
 app.post(`/bot${token}`, (req, res) => {
   bot.processUpdate(req.body);
@@ -29,11 +30,11 @@ bot.on('message', async (msg) => {
   const text = msg.text;
 
   if (text === '/start') {
-    // await bot.sendMessage(chatId, 'Ниже появится кнопка, заполни форму', {
-    //   reply_markup: {
-    //     keyboard: [[{ text: 'Сделать заказ', web_app: { url: webAppURL + 'form' } }]]
-    //   }
-    // });
+    await bot.sendMessage(chatId, 'Ниже появится кнопка, заполни форму', {
+      reply_markup: {
+        keyboard: [[{ text: 'Заполни меня', web_app: { url: webAppURL + 'form' } }]]
+      }
+    });
 
     await bot.sendMessage(chatId, 'Заходи в магазин', {
       reply_markup: {

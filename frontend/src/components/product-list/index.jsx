@@ -80,7 +80,6 @@ const ProductList = () => {
       {products.map((item) => (
         <ProductItem key={item.id} product={item} onAdd={onAdd} className={'item'} />
       ))}
-      <Link to="/login">login</Link>
     </div>
   );
 };

@@ -15,7 +15,7 @@ export function useAuth() {
       });
 
       const data = await response.json();
-      setIsAuth(data);
+      setIsAuth(data.success);
 
       if (data.success) {
         alert(`Добро пожаловать, ${data.user.first_name}!`);

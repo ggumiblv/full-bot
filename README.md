@@ -22,4 +22,4 @@
     1.  Инициализировать проект командой "npm create vite@latest" (для версии node v18.20.8, нужно установить vite версии 5.4.20)
     2.  В файл index.html в <head></head> добавляем скрипт: <script src="https://telegram.org/js/telegram-web-app.js?59"></script>.
      После подключения скрипта станет доступен объект window.Telegram.WebApp (https://core.telegram.org/bots/webapps#initializing-mini-apps), содержащий initData (данные о пользователе, который открыл это приложение), initDataUnsafe, цвета (например, var(--tg-theme-bg-color), var(--tg-theme-text-color)), кнопки, слушатели событий и др.
-    3. Если используется vite, добавить в корне проекта versel.json с объектом  { "rewrites": [{ "source": "/(.*)", "destination": "/" }]}
+    3. Если используется vite или любой другой статический хостинг, добавить в корне проекта versel.json с объектом  { "rewrites": [{ "source": "/(.*)", "destination": "/" }]}

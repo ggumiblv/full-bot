@@ -14,12 +14,11 @@ function App() {
 
   useEffect(() => {
     tg.ready();
-    signIn(window.Telegram.WebApp.initData);
+    signIn(window.Telegram?.WebApp.initData);
   }, []);
 
   return (
     <div className="app">
-      <Header />
       {isAuth ? <p>Authenticated</p> : <p>Not Authenticated</p>}
       <Routes>
         <Route index element={<ProductList />}></Route>

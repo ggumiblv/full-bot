@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { apiUrl } from '../helpers';
 
-export const useAuth = () => {
+export function useAuth() {
   // Состояние, указывающее, авторизован ли пользователь
   const [isAuth, setIsAuth] = useState(false);
 
@@ -28,4 +28,4 @@ export const useAuth = () => {
   };
 
   return { isAuth, signIn };
-};
+}

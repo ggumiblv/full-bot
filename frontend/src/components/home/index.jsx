@@ -1,4 +1,4 @@
-import profileStore from './api/profile';
+import profileStore from '../../api/profile';
 import { Link } from 'react-router-dom';
 
 const Home = () => {

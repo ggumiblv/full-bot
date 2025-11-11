@@ -108,6 +108,9 @@ app.post('/auth', async (req, res) => {
   const checkHash = params.hash; //выделяем хэш и удаляем его из данных
   delete params.hash;
 
+  const userId = params;
+  console.log(userId);
+
   //собираем data-check-string
   const dataCheckString = Object.keys(params)
     .sort()

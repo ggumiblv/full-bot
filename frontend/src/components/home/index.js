@@ -1,4 +1,5 @@
 import profileStore from './api/profile';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -9,6 +10,8 @@ const Home = () => {
         <p>Not Authenticated</p>
       )}
       <h1>Добро пожаловать в наш магазин!</h1>
+
+      <Link to="/catalog">Посмотреть ассортимент</Link>
     </div>
   );
 };

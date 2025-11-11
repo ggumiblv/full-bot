@@ -22,8 +22,10 @@ function App() {
       ) : (
         <p>Not Authenticated</p>
       )}
+      <h1>Добро пожаловать в наш магазин!</h1>
+
       <Routes>
-        <Route index element={<ProductList />}></Route>
+        <Route path="catalog" element={<ProductList />}></Route>
         <Route path="form" element={<Form />}></Route>
       </Routes>
     </div>

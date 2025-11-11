@@ -30,28 +30,31 @@ bot.on('message', async (msg) => {
   const text = msg.text;
 
   if (text === '/start') {
-    await bot.sendMessage(chatId, 'Ниже появится кнопка, заполни форму', {
+    await bot.sendMessage(chatId, 'Добро пожаловать в наш магазин! Загляните на наш сайт:', {
       reply_markup: {
-        keyboard: [[{ text: 'Заполни меня', web_app: { url: webAppURL + 'form' } }]]
-      }
-    });
-
-    await bot.sendMessage(chatId, 'Заходи в магазин', {
-      reply_markup: {
-        inline_keyboard: [[{ text: 'Сделать заказ', web_app: { url: webAppURL } }]]
+        inline_keyboard: [[{ text: 'Перейти на сайт', web_app: { url: webAppURL } }]]
       }
     });
   }
 
-  if (text === '/login') {
-    await bot.sendMessage(chatId, 'Присоединяйся к нам!', {
+  if (text === '/catalog') {
+    await bot.sendMessage(chatId, 'Здесь вы можете ознакомиться с нашим ассортиментом:', {
       reply_markup: {
-        inline_keyboard: [[{ text: 'Зарегистрироваться', web_app: { url: webAppURL + 'login' } }]]
+        inline_keyboard: [[{ text: 'Открыть каталог', web_app: { url: webAppURL + 'catalog' } }]]
+      }
+    });
+  }
+
+  if (text === '/form') {
+    await bot.sendMessage(chatId, 'Поделитесь своими данными, чтобы оформить покупки быстрее:', {
+      reply_markup: {
+        keyboard: [[{ text: 'Заполнить данные', web_app: { url: webAppURL + 'form' } }]]
       }
     });
   }
 
   if (msg?.web_app_data?.data) {
+    //если нам в сообщении прилетело поле web_app_data, и поле data у него не пустое, то можем обработать эти данные
     //получаем данные отправленные с веб приложения
     try {
       const data = JSON.parse(msg.web_app_data?.data);

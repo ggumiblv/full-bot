@@ -22,7 +22,6 @@ function App() {
       ) : (
         <p>Not Authenticated</p>
       )}
-      {'Привет,' + profileStore.user.first_name}
       <Routes>
         <Route index element={<ProductList />}></Route>
         <Route path="form" element={<Form />}></Route>

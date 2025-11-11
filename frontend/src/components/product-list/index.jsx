@@ -67,8 +67,12 @@ const ProductList = () => {
 
     if (newItems.length === 0) {
       tg.MainButton.hide();
+      tg.BackButoon.hide();
+      tg.SettingsButton.hide();
     } else {
       tg.MainButton.show();
+      tg.BackButoon.show();
+      tg.SettingsButton.show();
       tg.MainButton.setParams({
         text: `Купить ${getTotalPrice(newItems)}`
       });

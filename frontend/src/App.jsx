@@ -1,9 +1,9 @@
 import { useTelegram } from './hooks/useTelegram';
 import { Route, Routes } from 'react-router-dom';
-import profileStore from './api/profile';
 import { useEffect } from 'react';
 
 import ProductList from './components/product-list';
+import Home from './components/home';
 import Form from './components/form';
 
 import './App.css';
@@ -17,14 +17,8 @@ function App() {
 
   return (
     <div className="app">
-      {profileStore.user ? (
-        <p>{'Привет, ' + profileStore.user.first_name}</p>
-      ) : (
-        <p>Not Authenticated</p>
-      )}
-      <h1>Добро пожаловать в наш магазин!</h1>
-
       <Routes>
+        <Route index element={<Home />}></Route>
         <Route path="catalog" element={<ProductList />}></Route>
         <Route path="form" element={<Form />}></Route>
       </Routes>

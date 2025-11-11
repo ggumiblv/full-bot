@@ -17,7 +17,7 @@ async function preloadUser() {
     });
 
     const data = await response.json();
-    ProfileStore(data.success);
+    ProfileStore(data.user);
 
     if (data.success) {
       alert(`Добро пожаловать, ${data.user.first_name}!`);

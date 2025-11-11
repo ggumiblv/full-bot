@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
-    <div>
+    <div className="home">
       {profileStore.user ? (
         <p>{'Привет, ' + profileStore.user.first_name}</p>
       ) : (
@@ -11,7 +11,9 @@ const Home = () => {
       )}
       <h1>Добро пожаловать в наш магазин!</h1>
 
-      <Link to="/catalog">Посмотреть ассортимент</Link>
+      <Link className="link" to="/catalog">
+        Посмотреть ассортимент
+      </Link>
     </div>
   );
 };

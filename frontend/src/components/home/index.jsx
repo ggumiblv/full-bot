@@ -1,8 +1,6 @@
 import profileStore from '../../api/profile';
 import { Link } from 'react-router-dom';
 
-import shopImage from '../../assets/icons/shop-icon.webp';
-
 import './index.css';
 
 const Home = () => {
@@ -17,7 +15,7 @@ const Home = () => {
         Добро пожаловать <br /> в наш магазин!
       </h1>
 
-      <img className="home-image" alt="shop" src={shopImage} />
+      <img className="home-image" alt="shop" src="/shop-icon.webp" />
 
       <Link className="home-link" to="/catalog">
         Открыть каталог

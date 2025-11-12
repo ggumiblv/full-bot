@@ -10,7 +10,6 @@ const webAppURL = process.env.WEB_APP_URL;
 const PORT = process.env.PORT || 8000;
 const SERVER_URL = process.env.SERVER_URL;
 
-//const bot = new TelegramBot(token, { polling: true });
 const bot = new TelegramBot(token);
 
 const app = express();
@@ -62,7 +61,6 @@ bot.on('message', async (msg) => {
   }
 
   if (msg?.web_app_data?.data) {
-    //если нам в сообщении прилетело поле web_app_data, и поле data у него не пустое, то можем обработать эти данные
     //получаем данные отправленные с веб приложения с помощью метода sendData
     try {
       const data = JSON.parse(msg.web_app_data?.data);
@@ -80,7 +78,6 @@ bot.on('message', async (msg) => {
   }
 });
 
-//код на получение пост запроса
 app.post('/web-data', async (req, res) => {
   const { queryId, products, totalPrice } = req.body;
 

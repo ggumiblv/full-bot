@@ -20,7 +20,7 @@ const Home = () => {
       <img className="home-image" alt="shop" src={shopImage} />
 
       <Link className="home-link" to="/catalog">
-        Посмотреть ассортимент
+        Открыть каталог
       </Link>
     </div>
   );

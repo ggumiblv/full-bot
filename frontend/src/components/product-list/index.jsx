@@ -73,6 +73,7 @@ const ProductList = () => {
     } else {
       tg.MainButton.show();
       tg.MainButton.disable();
+      tg.MainButton.isActive(false);
       tg.MainButton.setParams({
         text: 'Вы не авторизованы'
       });

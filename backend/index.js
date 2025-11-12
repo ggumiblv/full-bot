@@ -53,9 +53,17 @@ bot.on('message', async (msg) => {
     });
   }
 
+  if (text === '/test') {
+    await bot.sendMessage(chatId, 'Эта тестовая кнопка на случай, если авторизация не произошла', {
+      reply_markup: {
+        keyboard: [[{ text: 'Открыть приложение', web_app: { url: webAppURL } }]]
+      }
+    });
+  }
+
   if (msg?.web_app_data?.data) {
     //если нам в сообщении прилетело поле web_app_data, и поле data у него не пустое, то можем обработать эти данные
-    //получаем данные отправленные с веб приложения
+    //получаем данные отправленные с веб приложения с помощью метода sendData
     try {
       const data = JSON.parse(msg.web_app_data?.data);
 

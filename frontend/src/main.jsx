@@ -18,20 +18,10 @@ async function preloadUser() {
 
     const data = await response.json();
     ProfileStore.setUser(data.user);
-
-    if (data.success) {
-      alert(`Добро пожаловать, ${data.user.first_name}!`);
-    } else {
-      alert('Ошибка авторизации.');
-    }
   } catch (err) {
     console.error('Auth error:', err);
   }
 }
-
-//вынести useAuth сюда
-//посмотреть в талане новосиб prefech данных в index.js
-//сохранить пользователя в стор
 
 async function render() {
   const { default: App } = await import('./App');

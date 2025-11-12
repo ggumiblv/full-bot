@@ -1,3 +1,30 @@
-.link {
-  color: var(--tg-theme-link-color);
+.home {
+  position: relative;
+  margin: auto;
+  max-width: 600px;
+  padding-block: 40px;
+  padding-inline: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.home-greeting {
+}
+
+.home-title {
+  margin-top: 40px;
+}
+
+.home-image {
+  margin-top: 40px;
+  display: block;
+  width: 100px;
+  height: 100px;
+}
+
+.home-link {
+  margin-top: 40px;
+  font-size: 20px;
 }

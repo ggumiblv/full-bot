@@ -1,17 +1,23 @@
 import profileStore from '../../api/profile';
 import { Link } from 'react-router-dom';
 
+import shopImage from '../../assets/icons/shop-icon.webp';
+
+import './index.css';
+
 const Home = () => {
   return (
     <div className="home">
       {profileStore.user ? (
-        <p>{'Привет, ' + profileStore.user.first_name}</p>
+        <p className="home-greeting">{'Привет, ' + profileStore.user.first_name}</p>
       ) : (
-        <p>Not Authenticated</p>
+        <p className="home-greeting">Вы не авторизованы</p>
       )}
-      <h1>Добро пожаловать в наш магазин!</h1>
+      <h1 className="home-title">Добро пожаловать в наш магазин!</h1>
 
-      <Link className="link" to="/catalog">
+      <img className="home-image" alt="shop" src={shopImage} />
+
+      <Link className="home-link" to="/catalog">
         Посмотреть ассортимент
       </Link>
     </div>

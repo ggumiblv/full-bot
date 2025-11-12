@@ -3,6 +3,13 @@
 Ссылка на фронтенд: https://full-bot-five.vercel.app/.
 Ссылка на бэкенд: https://my-bot-backend-1.onrender.com/.
 
+# Используемые источники
+
+    1. Документация Telegram Mini App: https://core.telegram.org/bots/webapps
+    2. Библиотека для работы с Telegram Bot API: https://www.npmjs.com/package/node-telegram-bot-api
+    3. Гайд по разработке Telegram Mini App: https://selectel.ru/blog/tutorials/telegram-bot-like-internet-shop/?utm_source=youtube.com&utm_medium=referral&utm_campaign=help_telegrambot_internet-shop_031022_ulbi-tv_paid
+    4. Статья по реализации авторизации в Telegram Mini App: https://habr.com/ru/articles/889270/
+
 # Настройки бота (BotFather)
 
     1. Ввести команду "/newbot", назвать бота, получить токен. Доступ к боту реализуется через этот токен, поэтому он не должен быть

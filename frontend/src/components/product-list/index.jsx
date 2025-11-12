@@ -1,6 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
 import { useTelegram } from '../../hooks/useTelegram';
-import { Link } from 'react-router-dom';
 import { apiUrl } from '../../helpers';
 
 import ProductItem from '../product-item';
@@ -29,13 +28,11 @@ const ProductList = () => {
   const { tg, queryId } = useTelegram();
 
   const onSendData = useCallback(() => {
-    //useCallback здесь используется чтобы сохранить ссылку на функцию и чтобы после перерисовки она не создавалась снова
     const data = {
       products: addedItems,
       totalPrice: getTotalPrice(addedItems),
       queryId
     };
-    // tg.sendData(JSON.stringify(data)); //отправляем данные
 
     fetch(`${apiUrl}/web-data`, {
       method: 'POST',

@@ -69,9 +69,9 @@
 
 1.  Инициализировать проект командой "npm create vite@latest" (для версии node v18.20.8, нужно установить vite версии 5.4.20)
 
-2.  В файл index.html в <head></head> добавляем скрипт: <script src="https://telegram.org/js/telegram-web-app.js?59"></script>.
+2.  В файл index.html в тег head добавляем скрипт: <script src="https://telegram.org/js/telegram-web-app.js?59"></script>.
 
-    После подключения скрипта станет доступен объект [window.Telegram.WebApp](https://core.telegram.org/bots/webapps#initializing-mini-apps), содержащий initData, initDataUnsafe, информация о теме, кнопки, слушатели событий, функции (close(), ready()) и др.
+    После подключения скрипта станет доступен объект [window.Telegram.WebApp](https://core.telegram.org/bots/webapps#initializing-mini-apps), содержащий initData, initDataUnsafe, информацию о теме, кнопки, слушатели событий, функции (close(), ready()) и др.
 
     Хорошей практикой является вызов метода ready(), который сообщает о том, что приложение полностю проинициализировалось и его можно отрисовывать.
 

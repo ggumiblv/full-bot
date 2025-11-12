@@ -47,10 +47,10 @@
 
 1. Создать файл index.js.
 
-2. Инициализировать проект командой "npm init -y".
+2. Инициализировать проект командой `npm init -y`.
 
-3. Установка пакета nodemon, обеспечивает перезапуск бота при изменении кода - "npm i -D nodemon".
-4. Добавляем в package.json скрипт: "start": "nodemon index.js".
+3. Установка пакета nodemon, обеспечивает перезапуск бота при изменении кода - `npm i -D nodemon`.
+4. Добавляем в `package.json` скрипт: `"start": "nodemon index.js"`.
 
 5. Устанавливаем пакет [node-telegram-bot-api](https://www.npmjs.com/package/node-telegram-bot-api).
    Способы получения обновлений от сервера: [polling](https://github.com/yagop/node-telegram-bot-api/blob/master/examples/polling.js), [webhook](https://github.com/yagop/node-telegram-bot-api/blob/master/examples/webhook/express.js)
@@ -58,27 +58,27 @@
 6. Добавляем токен бота в переменные окружения.
 
 7. Настраиваем базовый функционал бота.
-   Основное взаимодействие с пользователем происходит через обработчик события 'message': bot.on('message', () => {}), внутри которого происходит обработка команд.
+   Основное взаимодействие с пользователем происходит через обработчик события `'message': bot.on('message', () => {})`, внутри которого происходит обработка команд.
 
-8. Получаем и обрабатываем post запрос [валидации](https://core.telegram.org/bots/webapps#validating-data-received-via-the-mini-app),
+8. Получаем и обрабатываем POST запрос [валидации](https://core.telegram.org/bots/webapps#validating-data-received-via-the-mini-app),
    возвращаем ответ.
 
 ---
 
 ## Frontend (react)
 
-1.  Инициализировать проект командой "npm create vite@latest" (для версии node v18.20.8, нужно установить vite версии 5.4.20)
+1.  Инициализировать проект командой `npm create vite@latest` (для версии node v18.20.8, нужно установить vite версии 5.4.20)
 
-2.  В файл index.html в тег head добавляем скрипт: <script src="https://telegram.org/js/telegram-web-app.js?59"></script>.
+2.  В файл `index.html` в тег `head` добавляем скрипт: `<script src="https://telegram.org/js/telegram-web-app.js?59"></script>`.
 
-    После подключения скрипта станет доступен объект [window.Telegram.WebApp](https://core.telegram.org/bots/webapps#initializing-mini-apps), содержащий initData, initDataUnsafe, информацию о теме, кнопки, слушатели событий, функции (close(), ready()) и др.
+    После подключения скрипта станет доступен объект [window.Telegram.WebApp](https://core.telegram.org/bots/webapps#initializing-mini-apps), содержащий `initData`, `initDataUnsafe`, информацию о теме, кнопки, слушатели событий, функции (close(), ready()) и др.
 
     Хорошей практикой является вызов метода ready(), который сообщает о том, что приложение полностю проинициализировалось и его можно отрисовывать.
 
-    initData - нераспаршенная строка с данными о пользователе;  
-    initDataUnsafe - преобразованный json объект с данными о пользователе, который удобно использовать.
+    `initData` - нераспаршенная строка с данными о пользователе;  
+    `initDataUnsafe` - преобразованный json объект с данными о пользователе, который удобно использовать.
 
-3.  Если используется vite или любой другой статический хостинг, добавить в корне проекта versel.json с объектом { "rewrites": [{ "source": "/(.*)", "destination": "/" }]}
+3.  Если используется vite или любой другой статический хостинг, добавить в корне проекта versel.json с объектом `{ "rewrites": [{ "source": "/(.*)", "destination": "/" }]}`
 
-4.  Telegram рекомендует производить валидацию initData на бэкенде. (см. раздел Backend, пункт 8).
-    Поэтому получая его через window.Telegram.WebApp.initData, отправляем post запрос с body: JSON.stringify({ initData }).
+4.  Telegram рекомендует производить валидацию `initData` на бэкенде. `(см. раздел Backend, пункт 8)`.
+    Поэтому получая его через `window.Telegram.WebApp.initData`, отправляем post запрос с `body: JSON.stringify({ initData })`.

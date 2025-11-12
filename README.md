@@ -69,11 +69,14 @@
 
 1.  Инициализировать проект командой "npm create vite@latest" (для версии node v18.20.8, нужно установить vite версии 5.4.20)
 
-2.  В файл index.html в <head></head> добавляем скрипт: <script src="https://telegram.org/js/telegram-web-app.js?59"></script>.  
-    После подключения скрипта станет доступен объект [window.Telegram.WebApp](https://core.telegram.org/bots/webapps#initializing-mini-apps), содержащий initData, initDataUnsafe, информация о теме, кнопки, слушатели событий, функции (close(), ready()) и др.  
-    Хорошей практикой является вызов метода ready(), который сообщает о том, что приложение полностю проинициализировалось и его можно отрисовывать.  
+2.  В файл index.html в <head></head> добавляем скрипт: <script src="https://telegram.org/js/telegram-web-app.js?59"></script>.
+
+    После подключения скрипта станет доступен объект [window.Telegram.WebApp](https://core.telegram.org/bots/webapps#initializing-mini-apps), содержащий initData, initDataUnsafe, информация о теме, кнопки, слушатели событий, функции (close(), ready()) и др.
+
+    Хорошей практикой является вызов метода ready(), который сообщает о том, что приложение полностю проинициализировалось и его можно отрисовывать.
+
     initData - нераспаршенная строка с данными о пользователе;  
-    initDataUnsafe - преобразованный json объект, который удобно использовать.
+    initDataUnsafe - преобразованный json объект с данными о пользователе, который удобно использовать.
 
 3.  Если используется vite или любой другой статический хостинг, добавить в корне проекта versel.json с объектом { "rewrites": [{ "source": "/(.*)", "destination": "/" }]}
 

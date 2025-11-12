@@ -1,0 +1,7 @@
+.app {
+  position: relative;
+  margin: auto;
+  max-width: 600px;
+  padding-block: 40px;
+  padding-inline: 20px;
+}

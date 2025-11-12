@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect } from 'react';
 import { useTelegram } from '../../hooks/useTelegram';
+import profileStore from '../../api/profile';
 import { apiUrl } from '../../helpers';
 
 import ProductItem from '../product-item';
@@ -64,19 +65,28 @@ const ProductList = () => {
 
     if (newItems.length === 0) {
       tg.MainButton.hide();
-    } else {
+    } else if (profileStore.user) {
       tg.MainButton.show();
       tg.MainButton.setParams({
         text: `Купить ${getTotalPrice(newItems)}`
+      });
+    } else {
+      tg.MainButton.show();
+      tg.MainButton.disable();
+      tg.MainButton.setParams({
+        text: 'Вы не авторизованы'
       });
     }
   };
 
   return (
-    <div className={'list'}>
-      {products.map((item) => (
-        <ProductItem key={item.id} product={item} onAdd={onAdd} className={'item'} />
-      ))}
+    <div className="products">
+      <h1 className="products-title">Наши товары: </h1>
+      <div className="products-list">
+        {products.map((item) => (
+          <ProductItem key={item.id} product={item} onAdd={onAdd} className="products-item" />
+        ))}
+      </div>
     </div>
   );
 };

@@ -1,9 +1,12 @@
 .product {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   border: 1px solid var(--tg-theme-button-color);
   padding: 15px;
   width: 170px;
+  border-radius: 5px;
 }
 
 .img {
@@ -11,12 +14,12 @@
   background: lightgray;
   height: 100px;
   margin: 0 auto;
+  border-radius: 5px;
   background: var(--tg-theme-button-color);
 }
 
 .description {
   font-size: 0.8em;
-  color: var(--tg-theme-hint-color);
 }
 
 .add-btn {

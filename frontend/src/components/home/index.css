@@ -1,16 +1,8 @@
 .home {
-  position: relative;
-  margin: auto;
-  max-width: 600px;
-  padding-block: 40px;
-  padding-inline: 20px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-}
-
-.home-greeting {
 }
 
 .home-title {
@@ -27,6 +19,6 @@
 
 .home-link {
   margin-top: 40px;
-  font-size: 26px;
+  font-size: 22px;
   color: #b81d1d;
 }

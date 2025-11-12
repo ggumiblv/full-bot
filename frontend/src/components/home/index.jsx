@@ -13,7 +13,9 @@ const Home = () => {
       ) : (
         <p className="home-greeting">Вы не авторизованы</p>
       )}
-      <h1 className="home-title">Добро пожаловать в наш магазин!</h1>
+      <h1 className="home-title">
+        Добро пожаловать <br /> в наш магазин!
+      </h1>
 
       <img className="home-image" alt="shop" src={shopImage} />
 

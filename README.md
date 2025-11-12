@@ -1,38 +1,49 @@
 # full-bot
 
-Ссылка на фронтенд: https://full-bot-five.vercel.app/.
-Ссылка на бэкенд: https://my-bot-backend-1.onrender.com/.
+**Ссылка на фронтенд:** [https://full-bot-five.vercel.app/](https://full-bot-five.vercel.app/)  
+**Ссылка на бэкенд:** [https://my-bot-backend-1.onrender.com/](https://my-bot-backend-1.onrender.com/)
 
-# Используемые источники
+---
 
-    1. Документация Telegram Mini App: https://core.telegram.org/bots/webapps
-    2. Библиотека для работы с Telegram Bot API: https://www.npmjs.com/package/node-telegram-bot-api
-    3. Гайд по разработке Telegram Mini App: https://selectel.ru/blog/tutorials/telegram-bot-like-internet-shop/?utm_source=youtube.com&utm_medium=referral&utm_campaign=help_telegrambot_internet-shop_031022_ulbi-tv_paid
-    4. Статья по реализации авторизации в Telegram Mini App: https://habr.com/ru/articles/889270/
+## Используемые источники
 
-# Настройки бота (BotFather)
+1. [Документация Telegram Mini App](https://core.telegram.org/bots/webapps)  
+2. [Библиотека для работы с Telegram Bot API](https://www.npmjs.com/package/node-telegram-bot-api)  
+3. [Гайд по разработке Telegram Mini App (Selectel)](https://selectel.ru/blog/tutorials/telegram-bot-like-internet-shop/?utm_source=youtube.com&utm_medium=referral&utm_campaign=help_telegrambot_internet-shop_031022_ulbi-tv_paid)  
+4. [Статья по реализации авторизации в Telegram Mini App (Habr)](https://habr.com/ru/articles/889270/)
 
-    1. Ввести команду "/newbot", назвать бота, получить токен. Доступ к боту реализуется через этот токен, поэтому он не должен быть
-        доступен  для посторонних.
+---
 
-    2. Содержимым главной кнопки можнет быть либо ссылка на Telegram mini app, либо список команд с описаниями.
-        Для установки ссылки - my-bot / Bot Settings / Menu Button -> вставить ссылку на web.
-        Для установки команд - my-bot / Edit Bot / Edit commands -> ввести команды без "/"
+## Настройки бота (BotFather)
 
-    3. Существует 7 способов реализовать доступ к Telegram Mini App (https://core.telegram.org/bots/webapps#implementing-mini-apps):
-        - profile button;
-        - keyboard button - отображается в клавиатуре под полем ввода, не получает данные о пользователе, используется для простых форм,
-            календарей и др, полученную информацию отправляет обратно боту в виде строки, вызывая метод Telegram.WebApp.sendData (пример в этом коде в компоненте form)
-        - inline button - отображается под сообщением бота, получает данные о пользователе, о теме, а так же уникальный идентификатор сеанса
-            query_id, который позволяет отправлять сообщения от имени пользователя боту, используя метод answerWebAppQuery (пример в этом коде в компоненте ProductList)
-        - bot menu button;
-        - inline mode (не получает данные о пользователе);
-        - по прямой ссылке;
-        - через attachment menu(ссылка в браузере, которая перебрасывает в телеграм).
+1. Ввести команду `/newbot`, назвать бота и получить токен.  
+   Токен не должен быть доступен посторонним.
 
-        https://core.telegram.org/bots/api#sendmessage - метод через который бот отправляет сообщения
+2. Содержимым главной кнопки может быть либо ссылка на Telegram Mini App, либо список команд с описаниями.  
+   - Для установки ссылки: **my-bot → Bot Settings → Menu Button → вставить ссылку на web.**  
+   - Для установки команд: **my-bot → Edit Bot → Edit Commands → ввести команды без «/»**.
 
-# backend (node.js)
+3. Существует 7 способов реализовать доступ к Telegram Mini App  
+   (см. [официальную документацию](https://core.telegram.org/bots/webapps#implementing-mini-apps)):
+
+   - **Profile button**  
+   - **Keyboard button** — отображается в клавиатуре под полем ввода; не получает данные о пользователе.  
+     Используется для простых форм, календарей и т. д. Полученные данные отправляются обратно боту через  
+     `Telegram.WebApp.sendData()` (пример в компоненте `Form`).
+   - **Inline button** — отображается под сообщением бота, получает данные о пользователе, теме и уникальный  
+     идентификатор сеанса `query_id`, который позволяет отправлять сообщения от имени пользователя с помощью  
+     `answerWebAppQuery()` (пример в компоненте `ProductList`).
+   - **Bot menu button**
+   - **Inline mode** (не получает данные о пользователе)
+   - **По прямой ссылке**
+   - **Через attachment menu** — ссылка в браузере, которая перебрасывает в Telegram.
+
+   Метод отправки сообщений ботом:  
+   [https://core.telegram.org/bots/api#sendmessage](https://core.telegram.org/bots/api#sendmessage)
+
+---
+
+## Backend (Node.js
 
     1. Создать файл index.js.
 

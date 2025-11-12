@@ -42,7 +42,7 @@
    [https://core.telegram.org/bots/api#sendmessage](https://core.telegram.org/bots/api#sendmessage)
 ---
 
-# Backend (node.js)
+## Backend (node.js)
 
 1. Создать файл index.js.
 
@@ -62,7 +62,7 @@
 8. Получаем и обрабатываем post запрос [валидации](https://core.telegram.org/bots/webapps#validating-data-received-via-the-mini-app),
    возвращаем ответ.
 
-# Frontend (react)
+## Frontend (react)
 
 1.  Инициализировать проект командой "npm create vite@latest" (для версии node v18.20.8, нужно установить vite версии 5.4.20)
 

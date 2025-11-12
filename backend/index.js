@@ -61,7 +61,7 @@ bot.on('message', async (msg) => {
   }
 
   if (msg?.web_app_data?.data) {
-    //получаем данные отправленные с веб приложения с помощью метода sendData
+    //получаем данные, отправленные с веб приложения с помощью метода sendData
     try {
       const data = JSON.parse(msg.web_app_data?.data);
 
@@ -110,6 +110,8 @@ app.post('/auth', async (req, res) => {
   if (!initData) {
     return res.status(400).json({ success: false, error: 'No initData' });
   }
+
+  //ниже реализована валидация initData
 
   const params = Object.fromEntries(new URLSearchParams(initData)); //распарсили строку
 

@@ -1,10 +1,5 @@
 # Telegram Mini App
 
-**Ссылка на фронтенд:** [https://full-bot-five.vercel.app/](https://full-bot-five.vercel.app/)  
-**Ссылка на бэкенд:** [https://my-bot-backend-1.onrender.com/](https://my-bot-backend-1.onrender.com/)
-
----
-
 ## Используемые источники
 
 1. [Документация Telegram Mini App](https://core.telegram.org/bots/webapps)

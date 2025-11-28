@@ -1,7 +1,5 @@
 # Telegram Mini App
 
----
-
 ## Используемые источники
 
 1. [Документация Telegram Mini App](https://core.telegram.org/bots/webapps)

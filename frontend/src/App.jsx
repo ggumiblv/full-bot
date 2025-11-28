@@ -2,9 +2,9 @@ import { useTelegram } from './hooks/useTelegram';
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 
-import ProductList from './components/product-list';
-import Home from './components/home';
-import Form from './components/form';
+import Catalog from './pages/catalog';
+import Home from './pages/home';
+import Form from './pages/form';
 
 import './App.css';
 
@@ -18,9 +18,9 @@ function App() {
   return (
     <div className="app">
       <Routes>
-        <Route index element={<Home />}></Route>
-        <Route path="form" element={<Form />}></Route>
-        <Route path="catalog" element={<ProductList />}></Route>
+        <Route index element={<Home />} />
+        <Route path="form" element={<Form />} />
+        <Route path="catalog" element={<Catalog />} />
       </Routes>
     </div>
   );

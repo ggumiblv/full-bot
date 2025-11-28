@@ -1,9 +1,10 @@
 import { useState, useCallback, useEffect } from 'react';
 import { useTelegram } from '../../hooks/useTelegram';
 import profileStore from '../../api/profile';
-import { apiUrl } from '../../helpers';
+import { observer } from 'mobx-react';
+import { apiUrl } from '../../config';
 
-import ProductItem from '../product-item';
+import ProductItem from '../../components/product-item';
 
 import './index.css';
 
@@ -24,7 +25,7 @@ const getTotalPrice = (items) => {
   }, 0);
 };
 
-const ProductList = () => {
+function Catalog() {
   const [addedItems, setAddedItems] = useState([]);
   const { tg, queryId } = useTelegram();
 
@@ -65,18 +66,22 @@ const ProductList = () => {
 
     if (newItems.length === 0) {
       tg.MainButton.hide();
-    } else if (profileStore.user) {
+      return;
+    }
+
+    if (profileStore.isAuth) {
       tg.MainButton.show();
       tg.MainButton.setParams({
         text: `Купить ${getTotalPrice(newItems)}`
       });
-    } else {
-      tg.MainButton.show();
-      tg.MainButton.disable();
-      tg.MainButton.setParams({
-        text: 'Вы не авторизованы'
-      });
+      return;
     }
+
+    tg.MainButton.show();
+    tg.MainButton.disable();
+    tg.MainButton.setParams({
+      text: 'Вы не авторизованы'
+    });
   };
 
   return (
@@ -89,6 +94,6 @@ const ProductList = () => {
       </div>
     </div>
   );
-};
+}
 
-export default ProductList;
+export default observer(Catalog);

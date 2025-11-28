@@ -1,12 +1,13 @@
 import profileStore from '../../api/profile';
 import { Link } from 'react-router-dom';
+import { observer } from 'mobx-react';
 
 import './index.css';
 
-const Home = () => {
+function Home() {
   return (
     <div className="home">
-      {profileStore.user ? (
+      {profileStore.isAuth ? (
         <p className="home-greeting">{'Привет, ' + profileStore.user.first_name}</p>
       ) : (
         <p className="home-greeting">Вы не авторизованы</p>
@@ -22,6 +23,6 @@ const Home = () => {
       </Link>
     </div>
   );
-};
+}
 
-export default Home;
+export default observer(Home);

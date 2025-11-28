@@ -3,21 +3,23 @@ import { useTelegram } from '../../hooks/useTelegram';
 
 import './index.css';
 
-const Form = () => {
-  const [country, setCountry] = useState('');
-  const [street, setStreet] = useState('');
-  const [subject, setSubject] = useState('physical');
+const subjects = [
+  { value: 'physical', label: 'Физ. лицо' },
+  { value: 'legal', label: 'Юр. лиц' }
+];
+
+function getInitialData() {
+  return { country: '', street: '', subject: subjects[0].value };
+}
+
+function Form() {
+  const [form, setForm] = useState(getInitialData());
 
   const { tg } = useTelegram();
 
   const onSendData = useCallback(() => {
-    const data = {
-      country,
-      street,
-      subject
-    };
-    tg.sendData(JSON.stringify(data));
-  }, [country, street, subject]);
+    tg.sendData(JSON.stringify(form));
+  }, [form.country, form.street, form.subject]);
 
   useEffect(() => {
     tg.onEvent('mainButtonClicked', onSendData);
@@ -33,23 +35,17 @@ const Form = () => {
   }, []);
 
   useEffect(() => {
-    if (!street || !country) {
+    if (!form.street || !form.country) {
       tg.MainButton.hide();
     } else {
       tg.MainButton.show();
     }
-  }, [country, street]);
+  }, [form]);
 
-  const onChangeCountry = (e) => {
-    setCountry(e.target.value);
-  };
-
-  const onChangeStreet = (e) => {
-    setStreet(e.target.value);
-  };
-
-  const onChangeSubject = (e) => {
-    setSubject(e.target.value);
+  const onChange = (key) => {
+    return (e) => {
+      setForm((oldForm) => ({ ...oldForm, [key]: e.target.value }));
+    };
   };
 
   return (
@@ -59,22 +55,25 @@ const Form = () => {
         className={'input'}
         type="text"
         placeholder={'Страна'}
-        value={country}
-        onChange={onChangeCountry}
+        value={form.country}
+        onChange={onChange('country')}
       />
       <input
         className={'input'}
         type="text"
         placeholder={'Улица'}
-        value={street}
-        onChange={onChangeStreet}
+        value={form.street}
+        onChange={onChange('street')}
       />
-      <select value={subject} onChange={onChangeSubject} className={'select'}>
-        <option value={'physical'}>Физ. лицо</option>
-        <option value={'legal'}>Юр. лицо</option>
+      <select value={form.subject} onChange={onChange('subject')} className={'select'}>
+        {subjects.map((subject) => (
+          <option key={subject.value} value={subject.value}>
+            {subject.label}
+          </option>
+        ))}
       </select>
     </div>
   );
-};
+}
 
 export default Form;
